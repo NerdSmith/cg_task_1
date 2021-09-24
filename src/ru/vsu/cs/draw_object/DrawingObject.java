@@ -3,20 +3,18 @@ package ru.vsu.cs.draw_object;
 import java.awt.*;
 
 public abstract class DrawingObject {
-    protected final Graphics2D gr2d;
-    protected final int posX;
-    protected final int posY;
-    protected final int sizeX;
-    protected final int sizeY;
+    protected final double posCofX;
+    protected final double posCofY;
+    protected final double sizeCofX;
+    protected final double sizeCofY;
     protected final Color color;
 
-    public DrawingObject(Graphics2D gr2d, int posX, int posY, int sizeX, int sizeY, Color color) {
-        this.gr2d = gr2d;
-        this.posX = posX;
-        this.posY = posY;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
+    public DrawingObject(double posCofX, double posCofY, double sizeCofX, double sizeCofY, Color color) {
+        this.posCofX = posCofX;
+        this.posCofY = posCofY;
+        this.sizeCofX = sizeCofX;
+        this.sizeCofY = sizeCofY;
         this.color = color;
     }
-    public abstract void draw();
+    public abstract void draw(Graphics2D gr2d, int windowCurrWidth, int windowCurrHeight);
 }

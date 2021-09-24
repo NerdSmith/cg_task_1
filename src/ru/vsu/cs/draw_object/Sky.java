@@ -5,13 +5,19 @@ import java.awt.*;
 import static ru.vsu.cs.util.DrawUtil.drawWithColor;
 
 public class Sky extends DrawingObject {
-    public Sky(Graphics2D gr2d, int posX, int posY, int sizeX, int sizeY, Color color) {
-        super(gr2d, posX, posY, sizeX, sizeY, color);
+    public Sky(double posCofX, double posCofY, double sizeCofX, double sizeCofY, Color color) {
+        super(posCofX, posCofY, sizeCofX, sizeCofY, color);
     }
 
-    public void draw() {
-        drawWithColor(this.gr2d, this.color, () -> {
-           this.gr2d.fillRect(posX, posY, sizeX, sizeY);
+    @Override
+    public void draw(Graphics2D gr2d, int windowCurrWidth, int windowCurrHeight) {
+        drawWithColor(gr2d, this.color, () -> {
+            gr2d.fillRect(
+                    (int) (posCofX * windowCurrWidth),
+                    (int) (posCofY * windowCurrHeight),
+                    (int) (sizeCofX * windowCurrWidth),
+                    (int) (sizeCofY * windowCurrHeight)
+            );
         });
     }
 }

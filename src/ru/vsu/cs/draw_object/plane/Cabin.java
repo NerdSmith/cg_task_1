@@ -7,15 +7,19 @@ import java.awt.*;
 import static ru.vsu.cs.util.DrawUtil.drawWithColor;
 
 public class Cabin extends DrawingObject {
-
-    public Cabin(Graphics2D gr2d, int posX, int posY, int sizeX, int sizeY, Color color) {
-        super(gr2d, posX, posY, sizeX, sizeY, color);
+    public Cabin(double posCofX, double posCofY, double sizeCofX, double sizeCofY, Color color) {
+        super(posCofX, posCofY, sizeCofX, sizeCofY, color);
     }
 
     @Override
-    public void draw() {
-        drawWithColor(this.gr2d, this.color, () -> {
-            this.gr2d.fillOval(this.posX - sizeX / 2, this.posY - sizeY / 2, this.sizeX, this.sizeY);
+    public void draw(Graphics2D gr2d, int windowCurrWidth, int windowCurrHeight) {
+        drawWithColor(gr2d, this.color, () -> {
+            gr2d.fillOval(
+                    (int) (this.posCofX - sizeCofX / 2 * windowCurrWidth),
+                    (int) (this.posCofY - sizeCofY / 2 * windowCurrHeight),
+                    (int) (this.sizeCofX * windowCurrWidth),
+                    (int) (this.sizeCofY * windowCurrHeight)
+            );
         });
     }
 }
