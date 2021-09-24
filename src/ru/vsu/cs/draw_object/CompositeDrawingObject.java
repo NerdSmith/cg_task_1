@@ -10,7 +10,6 @@ public abstract class CompositeDrawingObject extends DrawingObject {
         super(posCofX, posCofY, sizeCofX, sizeCofY, color);
     }
 
-
     public void addDrawingObjects(ArrayList<DrawingObject> drawingObjects) {
         this.drawingObjects.addAll(drawingObjects);
     }

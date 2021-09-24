@@ -17,18 +17,18 @@ public class WingPair extends DrawingObject {
     public WingPair(double posCofX, double posCofY, double sizeCofX, double sizeCofY, Color color) {
         super(posCofX, posCofY, sizeCofX, sizeCofY, color);
         this.xCofDots = new double[]{
-                posCofX - sizeCofX / 2,
-                posCofX - sizeCofX / 4,
                 posCofX,
-                posCofX - sizeCofX / 2
+                posCofX - sizeCofX / 4 + sizeCofX / 2,
+                posCofX + sizeCofX / 2,
+                posCofX
         };
         this.yCofDots = new double[]{
-                posCofY - sizeCofY / 2,
-                posCofY - sizeCofY / 2,
-                posCofY + sizeCofY / 2,
-                posCofY + sizeCofY / 2
+                posCofY,
+                posCofY,
+                posCofY + sizeCofY,
+                posCofY + sizeCofY
         };
-        this.yReversedDots = Arrays.stream(this.yCofDots).map(element -> 2 * posCofY - element + sizeCofY).toArray();
+        this.yReversedDots = Arrays.stream(this.yCofDots).map(element -> 2 * posCofY - element + 2 * sizeCofY).toArray();
     }
 
     private void drawWing(Graphics2D gr2d, int[] x, int[] y) {
@@ -44,7 +44,8 @@ public class WingPair extends DrawingObject {
             );
             drawWing(gr2d,
                     toIntArray(multiplyArrayBy(xCofDots, windowCurrWidth)),
-                    toIntArray(multiplyArrayBy(yReversedDots, windowCurrHeight)));
+                    toIntArray(multiplyArrayBy(yReversedDots, windowCurrHeight))
+            );
         });
     }
 }

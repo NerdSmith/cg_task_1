@@ -15,8 +15,8 @@ public class Cabin extends DrawingObject {
     public void draw(Graphics2D gr2d, int windowCurrWidth, int windowCurrHeight) {
         drawWithColor(gr2d, this.color, () -> {
             gr2d.fillOval(
-                    (int) (this.posCofX - sizeCofX / 2 * windowCurrWidth),
-                    (int) (this.posCofY - sizeCofY / 2 * windowCurrHeight),
+                    (int) (this.posCofX * windowCurrWidth),
+                    (int) (this.posCofY * windowCurrHeight),
                     (int) (this.sizeCofX * windowCurrWidth),
                     (int) (this.sizeCofY * windowCurrHeight)
             );

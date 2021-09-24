@@ -18,26 +18,26 @@ public class Frame extends DrawingObject {
         super(posCofX, posCofY, sizeCofX, sizeCofY, color);
 
         this.xCofDots = new double[]{
-                posCofX + sizeCofX / 2,
-                posCofX + sizeCofX / 3,
-                posCofX + sizeCofX / 6,
-                posCofX - sizeCofX / 6,
-                posCofX - sizeCofX / 5,
-                posCofX - sizeCofX / 2 + sizeCofX / 20,
-                posCofX - sizeCofX / 2
+                posCofX + sizeCofX,
+                posCofX + sizeCofX / 3 + sizeCofX / 2,
+                posCofX + sizeCofX / 6 + sizeCofX / 2,
+                posCofX - sizeCofX / 6 + sizeCofX / 2,
+                posCofX - sizeCofX / 5 + sizeCofX / 2,
+                posCofX + sizeCofX / 20,
+                posCofX
         };
 
         this.yCofDots = new double[]{
+                posCofY + sizeCofY / 2,
+                posCofY - sizeCofY / 6 + sizeCofY / 2,
                 posCofY,
-                posCofY - sizeCofY / 6,
-                posCofY - sizeCofY / 2,
-                posCofY - sizeCofY / 2,
-                posCofY - sizeCofY / 6,
-                posCofY - sizeCofY / 6,
-                posCofY
+                posCofY,
+                posCofY - sizeCofY / 6 + sizeCofY / 2,
+                posCofY - sizeCofY / 6 + sizeCofY / 2,
+                posCofY + sizeCofY / 2
         };
 
-        this.yReversedDots = Arrays.stream(this.yCofDots).map(element -> 2 * posCofY - element).toArray();
+        this.yReversedDots = Arrays.stream(this.yCofDots).map(element -> 2 * posCofY - element + sizeCofY).toArray();
     }
 
 
