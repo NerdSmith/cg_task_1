@@ -3,10 +3,8 @@ package ru.vsu.cs;
 import ru.vsu.cs.draw_object.Cloud;
 import ru.vsu.cs.draw_object.Sky;
 import ru.vsu.cs.draw_object.World;
-import ru.vsu.cs.draw_object.plane.Cabin;
+import ru.vsu.cs.draw_object.plane.*;
 import ru.vsu.cs.draw_object.plane.Frame;
-import ru.vsu.cs.draw_object.plane.Plane;
-import ru.vsu.cs.draw_object.plane.WingPair;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,6 +33,9 @@ public class DrawPanel extends JPanel {
 
         Plane plane = new Plane(0.1, 0.1, 0.8, 0.8,  new Color(0x64696E));
         plane.addDrawingObject(new Frame(0.1, 0.4, 0.8, 0.2, new Color(0x64696E))); // day 4
+        ModelLabel modelLabel = new ModelLabel(0.5, 0.57, 0.6, 0.6, Color.BLACK);
+        modelLabel.setModelName("CP - 10");
+        plane.addDrawingObject(modelLabel);
         plane.addDrawingObject(new Cabin(0.65, 0.45, 0.1,  0.1, Color.BLACK)); // day 5
         plane.addDrawingObject(new WingPair(0.4, 0.1, 0.2, 0.4, new Color(0x64696E))); // day 6
         plane.addDrawingObject(new WingPair(0.15, 0.3, 0.1, 0.2, new Color(0x64696E))); // day 6

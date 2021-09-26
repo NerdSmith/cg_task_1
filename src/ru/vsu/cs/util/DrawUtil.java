@@ -9,4 +9,11 @@ public class DrawUtil {
         drawAction.run();
         gr2d.setColor(oldC);
     }
+
+    public static void drawWithFont(Graphics2D gr2d, Font font, Runnable drawAction) {
+        Font oldF = gr2d.getFont();
+        gr2d.setFont(font);
+        drawAction.run();
+        gr2d.setFont(oldF);
+    }
 }
